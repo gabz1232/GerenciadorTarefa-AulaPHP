@@ -69,7 +69,7 @@
                                         <td><?php echo $row['id']; ?></td>
                                         <td><?php echo $row['title']; ?></td>
                                         <td><?php echo $row['description']; ?></td>
-                                        <td><?php echo $row['created_at']; ?></td>
+                                        <td><?=date("d/m/Y", strtotime( $row['created_at'])); ?></td>
                                         <td><a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-secondary">
                                                 <i class="fas fa-marker"></i>
                                             </a>
