@@ -16,7 +16,7 @@
             <div class="col-md-4">
                 <div class="card card-body mt-5">
                     <h3 class="text-center">Login</h3>
-                    <form action="#" method="POST">
+                    <form action="authenticate.php" method="POST">
                         <div class="form-group">
                             <input type="email" name="email" id="email" class="form-control"
                                 placeholder="exemplo@email.com" required>
@@ -28,7 +28,7 @@
                         <button type="submit" class="btn btn-success btn-block">Entrar</button>
                     </form>
                     <div class="text-center mt-3">
-                        <a href="#" class="text-secondary"> Cadastre-se</a>
+                        <a href="register.php" class="text-secondary"> Cadastre-se</a>
                     </div>
                 </div>
             </div>
