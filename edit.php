@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if(!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
 require_once 'conn.php';
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -56,6 +63,11 @@ try {
         <nav class="navbar navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">Crud PHP</a>
+                <form action="logout.php" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-secondary">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
             </div>
         </nav>
 

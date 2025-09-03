@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
  
@@ -17,7 +27,7 @@
         <nav class="navbar navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">Crud PHP </a>
-                <form action="login.php" method="GET" class="d-inline">
+                <form action="logout.php" method="POST" class="d-inline">
                     <button type="submit" class="btn btn-secondary">
                         <i class="fas fa-sign-out-alt"></i> Logout          
                     </button>
