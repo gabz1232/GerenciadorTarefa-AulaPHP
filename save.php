@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("Location: login.php");
+    exit();
+}
+
 require_once 'conn.php';
 
 try {
@@ -16,9 +22,15 @@ try {
                 $stmt->bind_param("ss", $title, $description);
 
                 if ($stmt->execute()) {
+                    session_start();
+                    $_SESSION['message'] = "Tarefa salva com sucesso!";
+                    $_SESSION['message_type'] = "success";
                     header("Location: index.php");
                     exit();
                 } else {
+                    session_start();
+                    $_SESSION['message'] = "Erro ao salvar a tarefa.";
+                    $_SESSION['message_type'] = "danger";
                     throw new Exception("Erro ao executar a consulta: " . $stmt->error);
                 }
                 $stmt->close();
